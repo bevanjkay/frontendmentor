@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet"> 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+</head>
+<body>
+  <div id="app">
+    <transition name="fade" appear>
+  <div class="grid" v-if="!loading">
+    <testimonial-card
+    author="Daniel Clifford"
+    title="Verified Graduate"
+    image-url="image-daniel.jpg"
+    bg-color="primary-500"
+    text-color="white"
+    span-cols="2"
+    featured="true"
+    >
+      <template #lead>I received a job offer mid-course, and the subjects I learned were current, if not more so, 
+      in the company I joined. I honestly feel I got every penny’s worth.</template>
+      <template #quote>I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a 
+      transition and have heard some people who had an amazing experience here. I signed up 
+      for the free intro course and found it incredibly fun! I enrolled shortly thereafter. 
+      The next 12 weeks was the best - and most grueling - time of my life. Since completing 
+      the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup.</template>
+    </testimonial-card>
+    
+    <testimonial-card
+      author="Jonathan Walters"
+      title="Verified Graduate"
+      bg-color="primary-700"
+      text-color="white"
+      image-url="image-jonathan.jpg"
+    >
+      <template #lead>The team was very supportive and kept me motivated</template>
+      <template #quote>I started as a total newbie with virtually no coding skills. I now work as a mobile engineer 
+        for a big company. This was one of the best investments I’ve made in myself.</template>
+    </testimonial-card>
+
+    <testimonial-card
+        author="Kira Whittle"
+        title="Verified Graduate"
+        image-url="image-kira.jpg"
+        bg-color="primary-100"
+        text-color="dark"
+        image-url="image-kira.jpg"
+        span-rows=2
+      >
+        <template #lead>Such a life-changing experience. Highly recommended!</template>
+        <template #quote>Before joining the bootcamp, I’ve never written a line of code. I needed some structure from 
+          professionals who can help me learn programming step by step. I was encouraged to enroll by a former 
+          student of theirs who can only say wonderful things about the program. The entire curriculum and staff 
+          did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team 
+          project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial 
+          could ever have. In fact, I’ve often referred to it during interviews as an example of my developent 
+          experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 
+          100% recommend!</template>
+      </testimonial-card>
+
+    <testimonial-card
+      author="Jeanette Harmon"
+      title="Verified Graduate"
+      bg-color="primary-100"
+      text-color="dark"
+      image-url="image-jeanette.jpg">
+      <template #lead>An overall wonderful and rewarding experience</template>
+      <template #quote>Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living 
+        while doing something I love.</template>
+    </testimonial-card>
+
+    <testimonial-card
+      author="Patrick Adams"
+      title="Verified Graduate"
+      bg-color="primary-900"
+      text-color="white"
+      image-url="image-patrick.jpg"
+      span-cols="2"
+    >
+      <template #lead>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and 
+        learning from their experiences was easy.</template>
+      <template #quote>The staff seem genuinely concerned about my progress which I find really refreshing. The program 
+        gave me the confidence necessary to be able to go out in the world and present myself as a capable 
+        junior developer. The standard is above the rest. You will get the personal attention you need from 
+        an incredible community of smart and amazing people.</template>
+      </testimonial-card>
+</div>
+</transition>
+</div>
+<script>
+
+Vue.component('testimonial-card', {
+  props: {
+    author: {
+      type: String,
+      default: "",
+    },
+    title: {
+      type: String,
+      default: "",
+    },
+    lead: {
+      type: String,
+      default: "",
+    },
+    quote: {
+      type: String,
+      default: "",
+    },
+    imageUrl: {
+      type: String,
+      default: "",
+    },
+    bgColor: {
+      type: String,
+      default: "bg-primary-100",
+    },
+    textColor: {
+      type: String,
+      default: "text-dark",
+    },
+    spanCols: {
+      type: Number,
+      default: 1
+    },
+    spanRows: {
+      type: Number,
+      default: 1
+    },
+    featured: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    spans(cols, rows) {
+      var res = '';
+      if (cols !== 1) {
+        res += ` span-cols-${cols}`
+      }
+      
+      if (rows !== 1) {
+        res += ` span-rows-${rows}`
+      }
+      return res;
+    }
+  },
+  computed: {
+    background() {
+      if (this.featured) {
+        return ' featured'
+      } else {
+        return '';
+      }
+    }
+  },
+  template: `<article class="card" :class="'bg-' + bgColor + ' ' + 'text-' + textColor + ' ' + spans(spanCols, spanRows) + background">
+      <div class="card--author">
+        <img :src="'./images/' + imageUrl" class="card--author_image"/>
+        <div class="card--author_name"><h4>{{author}}</h4></div>
+        <div class="card--author_title">{{title}}</div>
+      </div>
+
+      <div class="card--lead"><slot name="lead"></slot></div>
+  <div class="card--quote">“<slot name="quote"></slot>”</div>
+</article>`
+})
+
+  var app = new Vue({
+  el: '#app',
+  data() {
+    return {
+      loading: true,
+    }
+  },
+  created() {
+    setTimeout(() => { this.loading = false }, 1000)
+  }
+})
+</script>
+</body>
+</html>
