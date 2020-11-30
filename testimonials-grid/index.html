@@ -162,7 +162,7 @@ Vue.component('testimonial-card', {
   },
   template: `<article class="card" :class="'bg-' + bgColor + ' ' + 'text-' + textColor + ' ' + spans(spanCols, spanRows) + background">
       <div class="card--author">
-        <img :src="'./images/' + imageUrl" class="card--author_image"/>
+        <img :alt="author + 'avatar'" :src="'./images/' + imageUrl" class="card--author_image"/>
         <div class="card--author_name"><h4>{{author}}</h4></div>
         <div class="card--author_title">{{title}}</div>
       </div>
