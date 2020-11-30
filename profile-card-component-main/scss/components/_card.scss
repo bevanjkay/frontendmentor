@@ -1,0 +1,79 @@
+.card {
+    display: grid;
+    min-width: 450px;
+    background:white;
+    border-radius: 1rem;
+    row-gap: 0px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(black,0.1);
+
+    @media screen and (max-width: 480px) {
+        width:90%;
+        min-width: 0px;
+    }
+
+    &--image {
+        height:150px;
+        border-radius: 1rem 1rem 0 0;
+        background: var(--clr-primary-normal);
+        background-image: url('../../images/bg-pattern-card.svg');
+    }
+
+    &--profile {
+        border-radius: 50%;
+        border: solid white 0.25em;
+        align-self: top;
+        justify-self: center;
+        height: 100px;
+        width:100px;
+        margin-top: -50px;
+    }
+
+    &--info {
+        display:grid;
+        min-height:100px;
+        place-items:center;
+        padding: 1rem 0;
+        align-content: center;
+        gap: 0.5em;
+
+        h2 {
+            font-size: 1em;
+        }
+
+        h3 {
+            font-size: 0.8em;
+        }
+
+        .muted {
+            font-weight: 400;
+        }
+    }
+
+    &--stats {
+        border-top:0.25px var(--clr-neutral) solid;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+        min-height: 7rem;
+        place-items: center;
+
+        &_stat {
+            font-size: 1em;
+            font-weight: bold;
+            color: var(--clr-primary-dark);
+        }
+
+        &_title {
+            font-size:0.7rem;
+            color: var(--clr-neutral);
+            margin-top: 0.5rem;
+            letter-spacing: 0.1rem;
+        }
+    }
+
+    .muted {
+        color: var(--clr-primary-gray);
+    }
+}

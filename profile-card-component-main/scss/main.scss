@@ -1,0 +1,17 @@
+@import 'reset';
+@import 'fonts';
+@import 'base';
+@import 'components/card';
+
+main {
+    min-height: 100vh;
+    background-color: var(--clr-primary-normal);
+    display:grid;
+    place-items: center;
+    font-family: var(--ff-primary);
+    font-size: 18px;
+    background-image: url('../images/bg-pattern-top.svg');
+    background-size:75%;
+    background-position:-50% 0%;
+    background-repeat: no-repeat;
+}
