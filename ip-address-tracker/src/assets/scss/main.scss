@@ -1,0 +1,143 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+
+h1 {
+    font-weight: 500;
+}
+
+.hero {
+    background-image: url('~@/assets/images/pattern-bg.png');
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding: 6em 0 8em;
+    min-height: 35vh;
+    display:grid;
+    place-items: center;
+
+    @media screen and (max-width: 768px) {
+        min-height: 20vh;
+        padding: 4em 0 12em;
+
+        & input {
+            font-size: 1em !important;
+            margin-top:0.5em;
+        }
+    }
+
+    & form {
+        width: clamp(100px, 80%, 600px);
+    }
+
+    & input {
+        border: none;
+        padding: 1rem;
+        font-size: 1.15em;
+        margin-bottom: 2em;
+
+        &[type=text] {
+            width: calc(100% - 50px);
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            color: $primary-500;
+            font-weight: 400;
+        }
+
+        &[type=submit] {
+            width: 50px;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            background: $primary-700;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 300ms ease-in-out all;
+
+            &:hover {
+               opacity: 0.8;
+            }
+        }
+    }
+}
+
+.results-wrapper {
+    position: relative;
+}
+
+.results {
+    max-width: clamp(100px, 90%, 1100px);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -75px;
+    margin: auto;
+    z-index: 9999;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2em 0;
+    border-radius: 1em;
+    background: white;
+    box-shadow: 0 0 15px rgba(black, 0.15);
+
+    div {
+        margin: 1em 0;
+        padding: 0 2em;
+
+        &:not(:last-child) {
+            border-right: 1px solid rgba($primary-500, 0.5);;
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        max-width:90%;
+        font-size: 14px;
+        top: -150px;
+        padding: 2em 1em;
+        gap: 2em;
+
+        div {
+            border-right: none !important;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+    
+
+    h3 {
+        font-size: 0.7em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $primary-500;
+        font-weight: 500;
+        margin-bottom: 1em;
+    }
+
+    p {
+        font-size: 1.5em;
+        font-weight: 500;
+        margin: 0;
+
+        small {
+            font-weight: 400;
+            font-size: 0.75em;
+        }
+    }
+}
+
+.leaflet-container {
+    min-height: 70vh;
+
+    @media screen and (max-width: 768px) {
+        min-height: 80vh;
+    }
+}

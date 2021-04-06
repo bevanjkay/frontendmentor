@@ -1,0 +1,466 @@
+$primary-400: hsl(176, 50%, 47%);
+$primary-700: hsl(176, 72%, 28%);
+$neutral-100: hsl(0,0%,95%);
+$neutral-300: hsl(0,0%,85%);
+$neutral-700: hsl(0, 0%, 48%);
+$neutral-900: hsl(0, 0%, 0%);
+
+$border-radius: 0.5rem;
+$button-radius: 2rem;
+
+$font-family: 'Commissioner',
+sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    font-size: 16px;
+    background: $neutral-100;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+p {
+    color: $neutral-700;
+}
+
+/// Header Styles ///
+
+header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+
+    .container {
+        width: clamp(200px, calc(100% - 2rem), 1200px);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 2rem;
+
+        a {
+            color: white;
+            font-weight: 400;
+        }
+    }
+}
+
+
+
+
+/// Hero Styles ///
+
+.hero {
+    background:
+        linear-gradient(180deg, rgba(black, 0.5), rgba(black, 0)),
+        url('../images/image-hero-desktop.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 450px;
+
+}
+
+
+/// Main Styles ///
+
+.row {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin-top:1rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: $button-radius;
+    font-size: 0.9rem;
+    border: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+
+    &-primary {
+        background: $primary-400;
+    }
+
+    &-dark {
+        background: $neutral-900;
+    }
+
+    &-secondary {
+        background: $neutral-100;
+        color: $neutral-700;
+    }
+
+    .btn-icon {
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+    }
+    
+    &.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
+
+.btn-group {
+    padding-left: 4rem;
+}
+
+
+main {
+    width: clamp(200px, calc(100% - 2rem), 720px);
+    margin: auto;
+    display: grid;
+    gap: 2rem;
+    padding-bottom: 100px;
+}
+
+section {
+    background: white;
+    padding: 2rem;
+    border-radius: $border-radius;
+}
+
+section.product {
+    margin-top: -100px;
+    text-align: center;
+    position: relative;
+    display:grid;
+    gap: 1rem;
+
+    .product-logo-holder {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        top: 0;
+        left:0;
+        transform: translateY(-50%);
+    }
+
+    h1 {
+        margin-top: 2rem;
+    }
+}
+
+section.info {
+
+    display: grid;
+    gap: 2rem;
+
+    .flexrow {
+        display: flex;
+
+        .col {
+            flex: 1 0 0;
+        }
+
+        .col.divider {
+            flex: 0 0 3rem;
+            width: 1rem;
+            border-left: $neutral-700 solid 1px;
+        }
+    }
+
+    .info-heading {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .info-sub {
+        color: $neutral-700;
+    }
+
+    .progressbar {
+        height: 0.6rem;
+        width: 100%;
+        position: relative;
+        background: $neutral-100;
+        border-radius: 0.3rem;
+    }
+
+    .progressbar-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 0.3rem;
+        background: $primary-400;
+    }
+}
+
+section.about {
+    display: grid;
+    grid-gap: 2rem;
+}
+
+.card {
+    padding: 2rem;
+    border-radius: $border-radius;
+    border: solid 1px $neutral-300;
+    display: grid;
+    gap: 2rem;
+
+    &-header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        &-left {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 1rem;
+        }
+
+        .pledge {
+            color: $primary-400;
+        }
+    }
+
+    &-footer {
+        display: flex;
+        width:100%;
+        justify-content: space-between;
+        align-items: center;
+
+        .amount-left {
+            display: flex;
+            align-items: center;
+        }
+        .amount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    }
+
+    &.soldout {
+        opacity: 0.5;
+    }
+}
+
+.modalcard {
+    border-radius: $border-radius;
+    border: solid 1px $neutral-300;
+    display: grid;
+    gap: 2rem;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    .modalcard-content {
+        display: flex;
+        width: 100%;
+        justify-content: left;
+        align-items: start;
+        padding: 2rem;
+
+        .modalcard-right {
+            display: grid;
+            gap: 1rem;
+
+            .amount-left {
+                .amount {
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color: $neutral-900;
+                }
+
+                font-weight: normal;
+                color: $neutral-700;
+            }
+        }
+
+        .modalcard-left {
+            min-width: 50px;
+        }
+    }
+
+    .modalcard-footer {
+        width: 100%;
+        border-top: 1px solid $neutral-100;
+        min-height: 50px;
+        
+        
+        &-inner {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            label {
+                justify-self: left;
+                color: $neutral-700;
+            }
+
+            .right {
+                display:grid;
+                grid-auto-flow: column;
+                gap: 1rem;
+            }
+
+            .input-group {
+                justify-self: right;
+                justify-content: end;
+                padding: 1rem;
+                border-radius: $button-radius;
+                border: solid 1px $neutral-300;
+
+                span {
+                    color: $neutral-700;
+                    margin-right: 0.25rem;
+                }
+
+                input {
+                    border: none;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    width: 50px;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .btn {
+                justify-self: right;
+            }
+        }
+    }
+}
+
+/// Modal Styles ///
+
+.modal-wrapper {
+    background: rgba(black, 0.5);
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    place-items: center;
+    transition: opacity 300ms linear;
+    will-change: opacity;
+
+    &.show {
+        display: grid;
+    }
+
+    &.visible {
+        opacity: 1;
+    }
+
+    .modal-inner {
+        background: white;
+        width: clamp(200px, 95vw, 500px);
+        height: min-content;
+        padding: 2rem;
+        border-radius: $border-radius;
+        box-shadow: 0 0 20px rgba(black, 0.15);
+        display: grid;
+        gap: 1.5rem;
+        place-items: center;
+        text-align: center;
+        position: relative;
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+
+        &.back-project {
+            text-align: left;
+            place-items: center left;
+            width: clamp(200px, 95vw, 720px);
+
+        }
+    }
+}
+
+/* The container */
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: solid 1px $neutral-300;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .radio-container input:checked ~ .checkmark {
+    background-color: white;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .radio-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .radio-container .checkmark:after {
+      top: 6px;
+      left: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $primary-400;
+  }

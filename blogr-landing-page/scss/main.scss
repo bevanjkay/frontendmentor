@@ -1,0 +1,141 @@
+@import 'reset';
+@import 'variables';
+
+header {
+    display: none;
+}
+
+body {
+    font-family: $font-ubuntu;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-overpass;
+    color: $clr-secondary;
+}
+
+h1 {
+    font-size: clamp(36px, 6vw, 56px);
+}
+
+h2 {
+    font-size: clamp(28px, 4vw, 36px);
+}
+
+h3 {
+    font-size: clamp(24px, 2.5vw, 28px);
+}
+
+p {
+    color: $clr-neutral;
+}
+
+section.secondary {
+    background: $clr-secondary;
+
+    p,
+    h2 {
+        color: white;
+    }
+}
+
+article {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.btn-grp {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+}
+
+.btn-primary {
+    background: white;
+    color: $clr-primary;
+}
+
+.btn-secondary {
+    border: solid white 1px;
+}
+
+.container {
+    width: clamp(200px, 97vw, 1100px);
+}
+
+.wrapper {
+    display: grid;
+    place-items: center;
+}
+
+section.wrapper {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.layout {
+    display: grid;
+
+    &.column {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        gap: 2rem;
+        place-items: center;
+    }
+
+    &.row {
+        grid-auto-flow: row;
+    }
+
+    &.gap {
+        gap: 1rem;
+    }
+
+    &.gap-xl {
+        gap: 2rem;
+    }
+
+    &.center {
+        place-items: center;
+    }
+}
+
+.col {}
+
+.hero {
+    min-height: 450px;
+    background: $gradient-red;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: white;
+
+    border-bottom-left-radius: 7rem;
+
+    .lead {
+        font-weight: 300;
+    }
+
+}

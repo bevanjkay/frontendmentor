@@ -1,0 +1,52 @@
+$font-family: 'Nunito Sans', sans-serif;
+
+* {
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+#app {
+    --elements: hsl(0, 0%, 100%);
+    --input: hsl(0, 0%, 52%);
+    --background: hsl(0, 0%, 98%);
+    --text: hsl(200, 15%, 8%);
+}
+
+#app, #app * {
+    transition: 
+    500ms background ease-in-out, 
+    500ms color ease-in-out,
+    500ms background-color ease-in-out;
+}
+
+#app.dark {
+    --elements: hsl(209, 23%, 22%);
+    --background: hsl(207, 26%, 17%);
+    --text: hsl(0, 0%, 100%);
+}
+
+#app, #app a {
+    color: var(--text);
+}
+
+/* Transitions */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transition: opacity 2s;
+  }

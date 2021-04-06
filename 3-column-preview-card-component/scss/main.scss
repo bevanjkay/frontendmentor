@@ -1,0 +1,124 @@
+
+$primary-orange: hsl(31, 77%, 52%);
+$primary-cyan: hsl(184, 100%, 22%);
+$primary-cyan-dark: hsl(179, 100%, 13%);
+
+$neutral-white: hsla(0, 0%, 100%, 0.75);
+$neutral-gray: hsl(0, 0%, 95%);
+
+$font-size: 15px;
+
+$ff-body: 'Lexend Deca', sans-serif;
+$ff-headings: 'Big Shoulders Display', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: $font-size;
+    font-family: $ff-body;
+}
+
+h1, h2, h3, h4 {
+    font-family: $ff-headings;
+}
+
+h2 {
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+main {
+    width: clamp(200px, 95vw, 900px);
+    margin: auto;
+    display: grid;
+    grid-auto-flow: column;
+    border-radius: $font-size;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    @media screen and (max-width: 768px) {
+        grid-auto-flow: row;
+    }
+}
+
+.card {
+    padding: $font-size * 2;
+    color: white;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 2em;
+    justify-items: left;
+
+    p {
+        color: $neutral-white;
+    }
+}
+
+button {
+    border: none;
+    border-radius: 500px;
+    padding: 10px 20px;
+    font-size: $font-size;
+    font-weight: bold;
+    border: 2px solid white;
+
+    &:hover {
+        background: transparent;
+        border: 2px solid white;
+        color: white !important;
+    }
+}
+
+.left {
+    background: $primary-orange;
+
+    @media screen and (max-width: 768px) {
+        border-top-left-radius: $font-size / 2;
+        border-top-right-radius: $font-size / 2;
+    }
+
+    @media screen and (min-width: 769px) {
+        border-top-left-radius: $font-size / 2;
+        border-bottom-left-radius: $font-size / 2;
+    }
+
+    button {
+        color: $primary-orange;
+    }
+
+}
+
+.middle {
+    background: $primary-cyan;
+
+    button {
+        color: $primary-cyan;
+    }
+}
+
+.right {
+    background: $primary-cyan-dark;
+    
+    @media screen and (max-width: 768px) {
+        border-bottom-right-radius: $font-size / 2;
+        border-bottom-left-radius: $font-size / 2;
+    }
+
+    @media screen and (min-width: 769px) {
+        border-top-right-radius: $font-size / 2;
+        border-bottom-right-radius: $font-size / 2;
+    }
+
+    button {
+        color: $primary-cyan-dark;
+    }
+}
